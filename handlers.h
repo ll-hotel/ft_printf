@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_logb.c                                          :+:      :+:    :+:   */
+/*   handlers.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ll-hotel <ll-hotel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 09:41:58 by ll-hotel          #+#    #+#             */
-/*   Updated: 2023/11/18 14:41:20 by ll-hotel         ###   ########.fr       */
+/*   Created: 2023/11/27 04:01:22 by ll-hotel          #+#    #+#             */
+/*   Updated: 2023/11/27 04:16:49 by ll-hotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../hdr/ft_printf_utils.h"
+#ifndef HANDLERS_H
+# define HANDLERS_H
+# include <stdarg.h>
 
-int	ft_log_b(t_ull n, t_ul b)
-{
-	int	l;
+int	handle_format(const char *f, va_list *args, int *count);
+int	handle_string(const char f, va_list *args);
+int	handle_number(const char f, va_list *args);
+int	handle_special(const char f, va_list *args);
 
-	l = 0;
-	n /= b;
-	while (n)
-	{
-		n /= (t_ull)b;
-		l += 1;
-	}
-	return (l);
-}
+#endif

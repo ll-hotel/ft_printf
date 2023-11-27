@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ll-hotel <ll-hotel@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ll-hotel <ll-hotel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 20:12:29 by ll-hotel          #+#    #+#             */
-/*   Updated: 2023/11/17 12:27:23 by ll-hotel         ###   ########.fr       */
+/*   Created: 2023/11/27 03:08:27 by ll-hotel          #+#    #+#             */
+/*   Updated: 2023/11/27 03:09:16 by ll-hotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_lstadd_front(t_list **l, t_list *_new)
+int	ft_putstr_fd(char *s, int fd)
 {
-	t_list	*e;
+	unsigned long	l;
 
-	e = _new;
-	if (!e)
-		return ;
-	while (e->next)
-		e = e->next;
-	e->next = (*l);
-	(*l) = _new;
+	l = 0;
+	while (s[l])
+		l += 1;
+	return (write(fd, s, l));
 }

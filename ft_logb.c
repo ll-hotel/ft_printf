@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_logb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ll-hotel <ll-hotel@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ll-hotel <ll-hotel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:40:14 by ll-hotel          #+#    #+#             */
-/*   Updated: 2023/11/07 13:40:16 by ll-hotel         ###   ########.fr       */
+/*   Created: 2023/11/16 09:41:58 by ll-hotel          #+#    #+#             */
+/*   Updated: 2023/11/24 14:04:19 by ll-hotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "ft_printf_utils.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_log_b(t_ull n, t_ul b)
 {
-	size_t			i;
-	unsigned char	*bytes;
+	int	l;
 
-	i = 0;
-	bytes = (unsigned char *)s;
-	while (i < n)
-		bytes[i++] = c;
-	return (s);
+	l = 0;
+	n /= b;
+	while (n)
+	{
+		n /= (t_ull)b;
+		l += 1;
+	}
+	return (l);
 }

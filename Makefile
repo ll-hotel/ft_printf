@@ -1,37 +1,33 @@
 CC		:=	cc
-HDR_DIR	:=	./hdr/
-SRC_DIR	:=	./src/
+HDR_DIR	:=	./
+SRC_DIR	:=	./
 OBJ_DIR	:=	./obj/
 CFLAGS	:=	-Wall -Wextra -Werror
-IFLAGS	:=	-I./hdr/ -I./libft/
-src		:=	ftprintf ft_xtoa ft_utoa to_next_symbol ft_logb
+IFLAGS	:=	-I$(HDR_DIR)
+hdr		:=	fake_libft ft_printf ft_printf_utils handlers
+HDR		= $(hdr:%=$(HDR_DIR)%.h)
+src		:=	ftprintf ft_xtoa ft_utoa ft_logb ft_putstr_fd ft_putchar_fd ft_strlen ft_putnbr_fd ft_strncmp ft_calloc handlers
 OBJ		=	$(src:%=$(OBJ_DIR)%.o)
-LIBFT	:=	./libft/libft.a
 NAME	:=	libftprintf.a
 
 .PHONY: clean fclean re all tmp
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
-	ld -r $(OBJ) $(LIBFT) -o $(OBJ_DIR)ft_printf.o
+$(NAME): $(OBJ_DIR) $(OBJ)
+	ld -r $(OBJ) -o $(OBJ_DIR)ft_printf.o
 	ar -rc $@ $(OBJ_DIR)ft_printf.o
-
-$(LIBFT):
-	cd ./libft && make re
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HDR)
 	$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
 
 clean:
-	cd ./libft && make clean && cd ..
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	cd ./libft && make fclean && cd ..
 	rm -f $(NAME)
 
 re: fclean all
