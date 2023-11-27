@@ -1,7 +1,7 @@
 CC		:=	cc
 HDR_DIR	:=	./
 SRC_DIR	:=	./
-OBJ_DIR	:=	.obj/
+OBJ_DIR	:=	./obj/
 CFLAGS	:=	-Wall -Wextra -Werror
 IFLAGS	:=	-I$(HDR_DIR)
 hdr		:=	fake_libft ft_printf ft_printf_utils handlers
