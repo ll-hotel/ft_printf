@@ -6,7 +6,7 @@
 /*   By: ll-hotel <ll-hotel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 03:17:56 by ll-hotel          #+#    #+#             */
-/*   Updated: 2023/11/27 05:10:33 by ll-hotel         ###   ########.fr       */
+/*   Updated: 2023/11/27 05:49:59 by ll-hotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putnbr_fd(int n, int fd)
 	int		i;
 
 	if (n == -2147483648)
-		return (write(1, "-2147483648", 11));
+		return (write(fd, "-2147483648", 11));
 	log = 0;
 	while (log < 11)
 		s[log++] = 0;
