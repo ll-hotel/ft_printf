@@ -12,7 +12,7 @@
 
 | Program name | libftprintf.a |
 | ------------ | ------------- |
-| Turn in files | Makefile, *.h, */*.h, *.c, */*.c |
+| Turn in files | Makefile, \*.h, */\*.h, *.c, */\*.c |
 | Makefile | NAME, all, clean, fclean, re |
 | External functs. | malloc, free, write, va_start, va_arg, va_copy, va_end |
 | Libft authorized | Yes |
