@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ll-hotel <ll-hotel@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ll-hotel <ll-hotel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:37:45 by ll-hotel          #+#    #+#             */
-/*   Updated: 2023/11/07 13:37:50 by ll-hotel         ###   ########.fr       */
+/*   Created: 2023/11/27 03:07:16 by ll-hotel          #+#    #+#             */
+/*   Updated: 2023/11/27 04:31:00 by ll-hotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <unistd.h>
+
+int	ft_putchar_fd(int c, int fd)
 {
-	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z') || ('0' <= c
-			&& c <= '9'));
+	return (write(fd, &c, 1));
 }
